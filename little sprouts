@@ -1,0 +1,1079 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Little Sprouts — Children's Nutrition &amp; Health Awareness Hub</title>
+  <!-- Google Fonts: Fredoka for playful headings, Nunito for warm readable body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Fredoka', 'sans-serif'],
+            sans: ['Nunito', 'sans-serif'],
+          },
+          colors: {
+            blush: '#FFF5F8',
+            petal: '#FFEBF1',
+            roseborder: '#F9C6D7',
+            babypink: '#F283A8',
+            roseblush: '#E56B94',
+            coralpeach: '#FFAD9E',
+            berrymauve: '#C9648B',
+            strawberry: '#FFD6E4',
+            lavenderpink: '#EAD7F5',
+            cocoaplum: '#4A2535',
+            plumbody: '#633B4C',
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background-color: #FFF5F8;
+      background-image: radial-gradient(#F9C6D7 0.75px, transparent 0.75px);
+      background-size: 24px 24px;
+      color: #633B4C;
+      font-family: 'Nunito', sans-serif;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Fredoka', sans-serif;
+      color: #4A2535;
+    }
+    /* Gentle floating animation for SVG mascots */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+    .animate-float {
+      animation: floatSlow 3.6s ease-in-out infinite;
+    }
+    .animate-float-delay {
+      animation: floatSlow 4.2s ease-in-out 1s infinite;
+    }
+    /* Soft playful card shadow with rose tint */
+    .play-card {
+      box-shadow: 0 8px 0 rgba(232, 114, 154, 0.12), 0 14px 28px rgba(232, 114, 154, 0.10);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    .play-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 11px 0 rgba(232, 114, 154, 0.16), 0 18px 32px rgba(232, 114, 154, 0.14);
+    }
+    /* Custom pill button press */
+    .btn-bouncy {
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+    }
+    .btn-bouncy:active {
+      transform: scale(0.96);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-strawberry selection:text-cocoaplum">
+
+  <!-- Sticky Top Navigation -->
+  <header class="sticky top-0 z-40 bg-blush/95 backdrop-blur-md border-b-2 border-roseborder">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
+      <a href="#top" class="flex items-center gap-2.5 group">
+        <!-- Cute Sprout Logo SVG -->
+        <div class="w-10 h-10 rounded-2xl bg-petal border-2 border-babypink flex items-center justify-center shadow-sm group-hover:rotate-6 transition-transform">
+          <svg viewBox="0 0 48 48" class="w-7 h-7" fill="none" aria-hidden="true">
+            <circle cx="24" cy="30" r="12" fill="#F283A8" />
+            <circle cx="20" cy="28" r="1.7" fill="#4A2535" />
+            <circle cx="28" cy="28" r="1.7" fill="#4A2535" />
+            <path d="M21 32.5C22.2 34 25.8 34 27 32.5" stroke="#4A2535" stroke-width="2.2" stroke-linecap="round" />
+            <path d="M24 18C24 12 17 9 13 12C13 16 18 19 24 18Z" fill="#52B788" />
+            <path d="M24 18C24 12 31 9 35 12C35 16 30 19 24 18Z" fill="#74C69D" />
+          </svg>
+        </div>
+        <div>
+          <span class="font-display text-lg sm:text-xl font-bold text-cocoaplum tracking-tight block leading-none">Little Sprouts</span>
+          <span class="text-xs font-bold text-berrymauve tracking-wide">Child Nutrition &amp; Health Hub</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-2 text-sm font-bold">
+        <a href="#super-plate" class="px-3.5 py-2 rounded-full hover:bg-petal text-cocoaplum transition-colors">Super-Plate</a>
+        <a href="#diseases-guide" class="px-3.5 py-2 rounded-full hover:bg-petal text-cocoaplum transition-colors">Nutritional Diseases</a>
+        <a href="#food-disorders" class="px-3.5 py-2 rounded-full hover:bg-petal text-cocoaplum transition-colors">Food Disorders</a>
+        <a href="#fact-myth" class="px-3.5 py-2 rounded-full bg-babypink hover:bg-roseblush text-white shadow-sm transition-colors">Myth Quiz</a>
+      </nav>
+
+      <!-- Mobile Quick Action -->
+      <a href="#fact-myth" class="md:hidden px-3.5 py-2 rounded-full bg-babypink text-xs font-extrabold text-white shadow-sm">
+        Quiz Time!
+      </a>
+    </div>
+  </header>
+
+  <!-- 1. HERO SECTION -->
+  <section id="top" class="relative overflow-hidden pt-8 pb-14 sm:pt-12 sm:pb-20 px-4 sm:px-6 bg-gradient-to-b from-[#FFE2EC] via-[#FFD1E1] to-blush">
+    <!-- Decorative Pastel Rose Blobs -->
+    <div class="pointer-events-none absolute -top-16 -left-16 w-64 h-64 rounded-full bg-babypink/25 blur-2xl"></div>
+    <div class="pointer-events-none absolute top-24 -right-20 w-72 h-72 rounded-full bg-lavenderpink/45 blur-2xl"></div>
+
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <!-- Left Copy -->
+      <div class="lg:col-span-7 text-center lg:text-left space-y-5">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 border-2 border-roseborder text-berrymauve text-xs sm:text-sm font-extrabold shadow-xs">
+          <span>🌸</span> For Kids, Parents, Teachers &amp; Caregivers
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-[3.25rem] font-bold text-cocoaplum leading-[1.12]">
+          Big Adventures Start with <span class="text-roseblush">Healthy</span>, Happy <span class="text-berrymauve">Tummies!</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-plumbody font-medium max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+          Explore how colorful foods power growing brains and strong bones, learn how to spot and prevent childhood nutritional diseases, and understand food allergies and feeding disorders in a friendly, easy-to-read guide.
+        </p>
+
+        <!-- Quick-Jump Pills -->
+        <div class="flex flex-wrap justify-center lg:justify-start gap-2.5 pt-2">
+          <a href="#super-plate" class="btn-bouncy inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-babypink text-white font-bold text-sm shadow-md hover:bg-roseblush">
+            <span>🍽️</span> Build a Super-Plate
+          </a>
+          <a href="#diseases-guide" class="btn-bouncy inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-roseblush text-white font-bold text-sm shadow-md hover:bg-berrymauve">
+            <span>🩺</span> Malnutrition &amp; Diseases
+          </a>
+          <a href="#food-disorders" class="btn-bouncy inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white border-2 border-roseborder text-cocoaplum font-extrabold text-sm shadow-sm hover:bg-petal">
+            <span>🌾</span> Allergies &amp; Food Disorders
+          </a>
+          <a href="#fact-myth" class="btn-bouncy inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-strawberry border-2 border-babypink text-cocoaplum font-extrabold text-sm shadow-sm hover:bg-petal">
+            <span>🎯</span> Fact or Myth Quiz
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Mascot Banner SVG Scene -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="relative w-full max-w-md bg-white rounded-[2rem] p-5 border-4 border-roseborder play-card">
+          <svg viewBox="0 0 420 310" class="w-full h-auto" role="img" aria-label="Happy Broccoli, Strawberry, Carrot, and Milk friends cheering together">
+            <!-- Soft Baby Pink Sky, Sparkles & Hill Backdrop -->
+            <rect x="8" y="8" width="404" height="294" rx="26" fill="#FFF0F5" />
+            <circle cx="352" cy="58" r="30" fill="#FFD6E4" stroke="#F9C6D7" stroke-width="3" />
+            <!-- Cute Sparkle Accents -->
+            <path d="M56 44L59 52L67 55L59 58L56 66L53 58L45 55L53 52Z" fill="#F283A8" />
+            <path d="M294 34L296 39L301 41L296 43L294 48L292 43L287 41L292 39Z" fill="#E56B94" />
+            <path d="M126 62L128 67L133 69L128 71L126 76L124 71L119 69L124 67Z" fill="#FFAD9E" />
+            <circle cx="220" cy="44" r="4" fill="#F9C6D7" />
+            <path d="M8 245 Q110 205 215 238 T412 230 L412 292 Q412 302 402 302 L18 302 Q8 302 8 292 Z" fill="#FFE2EC" />
+
+            <!-- Mascot 1: Happy Broccoli (Left) -->
+            <g class="animate-float">
+              <rect x="68" y="175" width="24" height="44" rx="10" fill="#95D5B2" />
+              <circle cx="62" cy="155" r="24" fill="#40916C" />
+              <circle cx="98" cy="155" r="24" fill="#40916C" />
+              <circle cx="80" cy="138" r="27" fill="#52B788" />
+              <!-- Cute Baby-Pink Bow -->
+              <path d="M74 114L80 118L74 122Z" fill="#F283A8" />
+              <path d="M86 114L80 118L86 122Z" fill="#F283A8" />
+              <circle cx="80" cy="118" r="2.5" fill="#E56B94" />
+              <!-- Eyes & Smile -->
+              <circle cx="72" cy="152" r="3" fill="#4A2535" />
+              <circle cx="88" cy="152" r="3" fill="#4A2535" />
+              <circle cx="66" cy="158" r="3.8" fill="#F283A8" opacity="0.85" />
+              <circle cx="94" cy="158" r="3.8" fill="#F283A8" opacity="0.85" />
+              <path d="M74 161 Q80 168 86 161" stroke="#4A2535" stroke-width="2.5" stroke-linecap="round" fill="none" />
+              <!-- Waving Arms -->
+              <path d="M54 185 Q38 172 42 158" stroke="#4A2535" stroke-width="3" stroke-linecap="round" fill="none" />
+              <path d="M104 185 Q120 175 118 164" stroke="#4A2535" stroke-width="3" stroke-linecap="round" fill="none" />
+            </g>
+
+            <!-- Mascot 2: Sunny Carrot (Center-Left) -->
+            <g class="animate-float-delay">
+              <path d="M165 110 C155 88 142 94 156 114" stroke="#40916C" stroke-width="5" stroke-linecap="round" fill="none" />
+              <path d="M172 110 C172 84 184 84 176 112" stroke="#74C69D" stroke-width="5" stroke-linecap="round" fill="none" />
+              <path d="M144 120 Q170 108 196 120 L177 226 Q170 236 163 226 Z" fill="#FF9E8A" />
+              <circle cx="162" cy="152" r="3" fill="#4A2535" />
+              <circle cx="178" cy="152" r="3" fill="#4A2535" />
+              <circle cx="156" cy="158" r="3.2" fill="#F283A8" opacity="0.75" />
+              <circle cx="184" cy="158" r="3.2" fill="#F283A8" opacity="0.75" />
+              <path d="M164 162 Q170 169 176 162" stroke="#4A2535" stroke-width="2.5" stroke-linecap="round" fill="none" />
+              <!-- Little Legs -->
+              <path d="M164 226 L160 246" stroke="#4A2535" stroke-width="3" stroke-linecap="round" />
+              <path d="M176 226 L180 246" stroke="#4A2535" stroke-width="3" stroke-linecap="round" />
+            </g>
+
+            <!-- Mascot 3: Super Milk Carton (Center-Right) -->
+            <g class="animate-float">
+              <rect x="224" y="128" width="56" height="92" rx="12" fill="#FFFFFF" stroke="#F283A8" stroke-width="3.5" />
+              <path d="M224 128 L252 104 L280 128 Z" fill="#FFD6E4" stroke="#F283A8" stroke-width="3" stroke-linejoin="round" />
+              <rect x="226" y="166" width="52" height="24" fill="#FFEBF1" />
+              <circle cx="242" cy="152" r="3" fill="#4A2535" />
+              <circle cx="262" cy="152" r="3" fill="#4A2535" />
+              <path d="M246 160 Q252 167 258 160" stroke="#4A2535" stroke-width="2.5" stroke-linecap="round" fill="none" />
+              <path d="M242 220 L242 242" stroke="#4A2535" stroke-width="3" stroke-linecap="round" />
+              <path d="M262 220 L262 242" stroke="#4A2535" stroke-width="3" stroke-linecap="round" />
+            </g>
+
+            <!-- Mascot 4: Berry Friend (Right) -->
+            <g class="animate-float-delay">
+              <path d="M312 164 C312 142 368 142 368 164 C368 195 348 218 340 218 C332 218 312 195 312 164 Z" fill="#E56B94" />
+              <path d="M324 146 L340 155 L356 146 L348 136 L340 144 L332 136 Z" fill="#52B788" />
+              <circle cx="332" cy="172" r="2.8" fill="#4A2535" />
+              <circle cx="348" cy="172" r="2.8" fill="#4A2535" />
+              <path d="M335 180 Q340 186 345 180" stroke="#4A2535" stroke-width="2.3" stroke-linecap="round" fill="none" />
+              <circle cx="325" cy="186" r="1.6" fill="#FFD6E4" />
+              <circle cx="354" cy="188" r="1.6" fill="#FFD6E4" />
+              <circle cx="340" cy="198" r="1.6" fill="#FFD6E4" />
+            </g>
+
+            <!-- Baby-Pink Banner Ribbon at Bottom -->
+            <rect x="64" y="254" width="292" height="34" rx="17" fill="#F283A8" stroke="#E56B94" stroke-width="2.5" />
+            <text x="210" y="276" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="700" font-size="14" fill="#FFFFFF">
+              Eat a Rainbow • Grow Strong &amp; Bright!
+            </text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. INTERACTIVE "BUILD A SUPER-PLATE" EXPLORER -->
+  <section id="super-plate" class="py-14 sm:py-20 px-4 sm:px-6 bg-petal/70 border-y-2 border-roseborder">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-strawberry text-berrymauve font-extrabold text-xs uppercase tracking-wider">Interactive Plate Builder</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-cocoaplum">Build a Kid's Super-Plate!</h2>
+        <p class="text-plumbody font-medium">
+          Tap yummy foods from all <strong>5 food groups</strong> below to fill the plate and discover how each food gives a growing body special superpowers!
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Left: Food Group Selector -->
+        <div class="lg:col-span-7 bg-white rounded-3xl p-5 sm:p-6 border-2 border-roseborder play-card space-y-5">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-petal">
+            <h3 class="text-xl font-bold text-cocoaplum">1. Pick Your Foods</h3>
+            <div class="flex gap-2">
+              <button type="button" id="presetBalancedBtn" class="btn-bouncy px-3 py-1.5 rounded-xl bg-babypink hover:bg-roseblush text-white text-xs font-extrabold shadow-xs">
+                ✨ Balanced Meal
+              </button>
+              <button type="button" id="clearPlateBtn" class="btn-bouncy px-3 py-1.5 rounded-xl bg-petal hover:bg-strawberry text-cocoaplum text-xs font-extrabold">
+                Clear Plate
+              </button>
+            </div>
+          </div>
+
+          <!-- Food Groups Container populated by JS -->
+          <div id="foodGroupsContainer" class="space-y-4"></div>
+        </div>
+
+        <!-- Right: Visual Interactive Plate & Body Superpowers -->
+        <div class="lg:col-span-5 bg-white rounded-3xl p-5 sm:p-6 border-2 border-roseborder play-card space-y-5">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-bold text-cocoaplum">2. Your Super-Plate</h3>
+            <span id="plateCountBadge" class="px-3 py-1 rounded-full bg-babypink text-white text-xs font-extrabold">0 / 5 Groups</span>
+          </div>
+
+          <!-- Illustrated SVG Divided Plate -->
+          <div class="relative flex justify-center items-center py-2">
+            <svg viewBox="0 0 320 260" class="w-full max-w-[310px] h-auto" role="img" aria-label="Interactive balanced nutrition plate">
+              <!-- Baby-Pink Placemat -->
+              <rect x="8" y="10" width="304" height="240" rx="28" fill="#FFEBF1" stroke="#F9C6D7" stroke-width="3" />
+              <!-- Rose-Gold Fork & Spoon -->
+              <g fill="#E598B2">
+                <rect x="24" y="95" width="6" height="90" rx="3" />
+                <rect x="19" y="70" width="3" height="28" rx="1.5" />
+                <rect x="25.5" y="70" width="3" height="28" rx="1.5" />
+                <rect x="32" y="70" width="3" height="28" rx="1.5" />
+                <rect x="290" y="102" width="6" height="83" rx="3" />
+                <ellipse cx="293" cy="84" rx="10" ry="16" />
+              </g>
+
+              <!-- Outer Plate Rim -->
+              <circle cx="152" cy="132" r="98" fill="#FFFFFF" stroke="#F9C6D7" stroke-width="6" />
+              <circle cx="152" cy="132" r="86" fill="#FFF8FA" stroke="#F283A8" stroke-width="2" stroke-dasharray="4 4" />
+
+              <!-- 4 Plate Quadrants (Veggies, Fruits, Grains, Proteins) -->
+              <!-- Top-Left: Veggies -->
+              <path id="slice-veggies" d="M152 132 L152 48 A84 84 0 0 0 68 132 Z" fill="#F9C6D7" opacity="0.35" />
+              <!-- Bottom-Left: Fruits -->
+              <path id="slice-fruits" d="M152 132 L68 132 A84 84 0 0 0 152 216 Z" fill="#F9C6D7" opacity="0.35" />
+              <!-- Top-Right: Whole Grains -->
+              <path id="slice-grains" d="M152 132 L236 132 A84 84 0 0 0 152 48 Z" fill="#F9C6D7" opacity="0.35" />
+              <!-- Bottom-Right: Proteins -->
+              <path id="slice-proteins" d="M152 132 L152 216 A84 84 0 0 0 236 132 Z" fill="#F9C6D7" opacity="0.35" />
+
+              <!-- Divider Lines -->
+              <line x1="152" y1="48" x2="152" y2="216" stroke="#FFFFFF" stroke-width="3" />
+              <line x1="68" y1="132" x2="236" y2="132" stroke="#FFFFFF" stroke-width="3" />
+
+              <!-- Side Cup: Dairy & Healthy Fats -->
+              <circle id="slice-dairy" cx="268" cy="46" r="28" fill="#FFE2EC" stroke="#F9C6D7" stroke-width="3" />
+
+              <!-- Emoji / Label Slots on Plate -->
+              <text id="label-veggies" x="115" y="103" text-anchor="middle" font-size="22" font-family="Nunito, sans-serif">🥦</text>
+              <text x="115" y="119" text-anchor="middle" font-size="8.5" font-weight="800" fill="#633B4C">VEGGIES</text>
+
+              <text id="label-fruits" x="115" y="168" text-anchor="middle" font-size="22" font-family="Nunito, sans-serif">🍓</text>
+              <text x="115" y="184" text-anchor="middle" font-size="8.5" font-weight="800" fill="#633B4C">FRUITS</text>
+
+              <text id="label-grains" x="189" y="103" text-anchor="middle" font-size="22" font-family="Nunito, sans-serif">🌾</text>
+              <text x="189" y="119" text-anchor="middle" font-size="8.5" font-weight="800" fill="#633B4C">GRAINS</text>
+
+              <text id="label-proteins" x="189" y="168" text-anchor="middle" font-size="22" font-family="Nunito, sans-serif">🥚</text>
+              <text x="189" y="184" text-anchor="middle" font-size="8.5" font-weight="800" fill="#633B4C">PROTEIN</text>
+
+              <text id="label-dairy" x="268" y="49" text-anchor="middle" font-size="18" font-family="Nunito, sans-serif">🥛</text>
+              <text x="268" y="63" text-anchor="middle" font-size="7" font-weight="800" fill="#633B4C">DAIRY/FAT</text>
+            </svg>
+          </div>
+
+          <!-- Real-Time Body Benefits Feedback -->
+          <div class="bg-petal rounded-2xl p-4 border-2 border-roseborder space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-extrabold uppercase tracking-wider text-berrymauve">Body Superpowers Unlocked</span>
+              <span id="plateStatusLabel" class="text-xs font-bold text-roseblush">Tap foods to start!</span>
+            </div>
+            <div id="benefitsList" class="space-y-2 text-sm text-plumbody">
+              <p class="text-plumbody/75 italic">Your plate is empty right now. Pick a protein, veggie, fruit, grain, or dairy item to see how it helps a child grow!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. NUTRITIONAL DISEASES & MALNUTRITION GUIDE -->
+  <section id="diseases-guide" class="py-14 sm:py-20 px-4 sm:px-6 bg-blush/90">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-8 space-y-2">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-strawberry text-berrymauve font-extrabold text-xs uppercase tracking-wider">Awareness &amp; Prevention</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-cocoaplum">Childhood Nutritional Diseases Guide</h2>
+        <p class="text-plumbody font-medium">
+          Growing bodies need the <strong>right balance</strong> of calories, protein, vitamins, and minerals. Too little, too much, or missing key nutrients can cause specific health conditions.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="flex flex-wrap justify-center gap-2.5 mb-10" role="tablist" aria-label="Filter nutritional conditions">
+        <button type="button" data-filter="all" class="disease-tab btn-bouncy px-4 py-2.5 rounded-2xl font-extrabold text-sm bg-babypink text-white shadow-sm">
+          🌸 All Conditions (11)
+        </button>
+        <button type="button" data-filter="undernutrition" class="disease-tab btn-bouncy px-4 py-2.5 rounded-2xl font-extrabold text-sm bg-white border-2 border-roseborder text-cocoaplum hover:bg-petal">
+          🥣 Undernutrition &amp; Deficiencies
+        </button>
+        <button type="button" data-filter="overnutrition" class="disease-tab btn-bouncy px-4 py-2.5 rounded-2xl font-extrabold text-sm bg-white border-2 border-roseborder text-cocoaplum hover:bg-petal">
+          🍩 Overnutrition
+        </button>
+        <button type="button" data-filter="defective" class="disease-tab btn-bouncy px-4 py-2.5 rounded-2xl font-extrabold text-sm bg-white border-2 border-roseborder text-cocoaplum hover:bg-petal">
+          ⚖️ Imbalanced &amp; Defective Diets
+        </button>
+      </div>
+
+      <!-- Condition Cards Grid -->
+      <div id="diseasesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- 4. FOOD-RELATED DISORDERS & SENSITIVITIES -->
+  <section id="food-disorders" class="py-14 sm:py-20 px-4 sm:px-6 bg-petal/75 border-y-2 border-roseborder">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-10 space-y-2">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-lavenderpink text-cocoaplum font-extrabold text-xs uppercase tracking-wider">Reactions &amp; Eating Behaviors</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-cocoaplum">Food-Related Disorders &amp; Sensitivities</h2>
+        <p class="text-plumbody font-medium">
+          Sometimes health challenges aren't caused by poor diet choices, but by how a child's immune system, tummy, or brain responds to food.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Card 1: Food Allergies vs Intolerances -->
+        <article class="bg-white rounded-3xl p-6 border-2 border-roseborder play-card space-y-4">
+          <div class="flex items-center gap-3.5">
+            <div class="w-14 h-14 rounded-2xl bg-strawberry flex items-center justify-center shrink-0">
+              <svg viewBox="0 0 48 48" class="w-9 h-9" fill="none" aria-hidden="true">
+                <path d="M24 6L38 12V23C38 32.5 32 40 24 43C16 40 10 32.5 10 23V12L24 6Z" fill="#E56B94" />
+                <path d="M24 16V26M24 31H24.02" stroke="#FFF" stroke-width="3.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-roseblush">Immune vs. Digestive Response</span>
+              <h3 class="text-xl font-bold text-cocoaplum">Food Allergies vs. Intolerances</h3>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+            <div class="p-3.5 rounded-2xl bg-petal border border-roseborder">
+              <p class="font-extrabold text-cocoaplum mb-1">🚨 Food Allergy (IgE)</p>
+              <p class="text-plumbody leading-relaxed">
+                The <strong>immune system</strong> overreacts to foods like peanuts, eggs, milk, tree nuts, or shellfish. Even a tiny crumb can trigger hives, swelling, wheezing, or anaphylaxis.
+              </p>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-[#FFF3EE] border border-coralpeach">
+              <p class="font-extrabold text-cocoaplum mb-1">🥛 Food Intolerance</p>
+              <p class="text-plumbody leading-relaxed">
+                The <strong>digestive system</strong> lacks an enzyme (like lactase in <em>Lactose Intolerance</em>), causing bloating, gas, or tummy cramps—uncomfortable, but not life-threatening.
+              </p>
+            </div>
+          </div>
+
+          <div class="text-xs font-bold text-plumbody bg-blush border border-roseborder/70 px-3.5 py-2.5 rounded-xl">
+            💡 <strong>Care Tip:</strong> Always check allergy action plans at school and replace avoided dairy with calcium-fortified alternatives.
+          </div>
+        </article>
+
+        <!-- Card 2: Celiac Disease -->
+        <article class="bg-white rounded-3xl p-6 border-2 border-roseborder play-card space-y-4">
+          <div class="flex items-center gap-3.5">
+            <div class="w-14 h-14 rounded-2xl bg-[#FFE9E3] flex items-center justify-center shrink-0">
+              <svg viewBox="0 0 48 48" class="w-9 h-9" fill="none" aria-hidden="true">
+                <path d="M24 38V12" stroke="#C9648B" stroke-width="3" stroke-linecap="round" />
+                <ellipse cx="18" cy="18" rx="5" ry="3" transform="rotate(-30 18 18)" fill="#FFAD9E" />
+                <ellipse cx="30" cy="18" rx="5" ry="3" transform="rotate(30 30 18)" fill="#FFAD9E" />
+                <ellipse cx="18" cy="27" rx="5" ry="3" transform="rotate(-30 18 27)" fill="#FFAD9E" />
+                <ellipse cx="30" cy="27" rx="5" ry="3" transform="rotate(30 30 27)" fill="#FFAD9E" />
+                <circle cx="35" cy="35" r="8" fill="#E56B94" />
+                <path d="M32 32L38 38M38 32L32 38" stroke="#FFF" stroke-width="2.2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-berrymauve">Autoimmune Gluten Reaction</span>
+              <h3 class="text-xl font-bold text-cocoaplum">Celiac Disease</h3>
+            </div>
+          </div>
+
+          <p class="text-sm text-plumbody leading-relaxed">
+            When a child with Celiac disease eats <strong>gluten</strong> (a protein in wheat, barley, and rye), their immune system damages the tiny finger-like <em>villi</em> lining the small intestine.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+            <div class="p-3 rounded-2xl bg-petal border border-roseborder/70">
+              <p class="font-extrabold text-cocoaplum">Why It Affects Nutrition:</p>
+              <p class="text-plumbody text-xs mt-1">Damaged villi cannot absorb iron, calcium, folate, or calories properly—leading to slow growth, anemia, or tummy pain.</p>
+            </div>
+            <div class="p-3 rounded-2xl bg-[#F6ECFB] border border-lavenderpink">
+              <p class="font-extrabold text-cocoaplum">How It's Managed:</p>
+              <p class="text-plumbody text-xs mt-1">A strict, lifelong <strong>100% gluten-free diet</strong> (naturally GF rice, corn, fruits, veggies, meats, and certified GF grains) lets the intestine heal completely!</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: Pica -->
+        <article class="bg-white rounded-3xl p-6 border-2 border-roseborder play-card space-y-4">
+          <div class="flex items-center gap-3.5">
+            <div class="w-14 h-14 rounded-2xl bg-lavenderpink/70 flex items-center justify-center shrink-0">
+              <svg viewBox="0 0 48 48" class="w-9 h-9" fill="none" aria-hidden="true">
+                <circle cx="24" cy="24" r="16" fill="#D5A6E6" />
+                <path d="M17 22C17 19 21 19 21 22" stroke="#4A2535" stroke-width="2.5" stroke-linecap="round" />
+                <path d="M27 22C27 19 31 19 31 22" stroke="#4A2535" stroke-width="2.5" stroke-linecap="round" />
+                <circle cx="24" cy="30" r="3" fill="#4A2535" />
+                <path d="M34 10L36 14L40 15L36 17L34 21L32 17L28 15L32 14Z" fill="#F283A8" />
+              </svg>
+            </div>
+            <div>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-berrymauve">Feeding Behavior &amp; Mineral Clue</span>
+              <h3 class="text-xl font-bold text-cocoaplum">Pica (Craving Non-Food Items)</h3>
+            </div>
+          </div>
+
+          <p class="text-sm text-plumbody leading-relaxed">
+            <strong>Pica</strong> is when a child (older than 2 years) repeatedly craves and eats non-food substances with no nutritional value—such as <strong>dirt, clay, chalk, paper, paint chips, or ice</strong>.
+          </p>
+
+          <div class="p-3.5 rounded-2xl bg-[#F6ECFB] border border-lavenderpink text-sm space-y-1">
+            <p class="font-extrabold text-cocoaplum">🔍 Important Nutritional Link:</p>
+            <p class="text-plumbody text-xs leading-relaxed">
+              Pica is frequently triggered by <strong>Iron or Zinc deficiency</strong>! It also carries risks of lead poisoning, intestinal blockages, or parasites—so pediatric blood tests and safe supervision are essential.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 4: ARFID vs Picky Eating -->
+        <article class="bg-white rounded-3xl p-6 border-2 border-roseborder play-card space-y-4">
+          <div class="flex items-center gap-3.5">
+            <div class="w-14 h-14 rounded-2xl bg-petal flex items-center justify-center shrink-0">
+              <svg viewBox="0 0 48 48" class="w-9 h-9" fill="none" aria-hidden="true">
+                <circle cx="24" cy="26" r="15" fill="#F9C6D7" />
+                <circle cx="19" cy="24" r="2.2" fill="#4A2535" />
+                <circle cx="29" cy="24" r="2.2" fill="#4A2535" />
+                <path d="M19 31Q24 28 29 31" stroke="#4A2535" stroke-width="2.3" stroke-linecap="round" fill="none" />
+                <path d="M24 8V13M16 10L18 14M32 10L30 14" stroke="#E56B94" stroke-width="2.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-roseblush">Sensory &amp; Feeding Disorder</span>
+              <h3 class="text-xl font-bold text-cocoaplum">ARFID vs. Everyday Picky Eating</h3>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+            <div class="p-3.5 rounded-2xl bg-[#FFF3EE] border border-coralpeach">
+              <p class="font-extrabold text-cocoaplum mb-1">🥦 Typical Picky Eating</p>
+              <p class="text-plumbody text-xs leading-relaxed">
+                Common in toddlers! Kids still eat enough variety across food groups to grow steadily and gain weight normally.
+              </p>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-petal border border-roseborder">
+              <p class="font-extrabold text-cocoaplum mb-1">🧩 ARFID</p>
+              <p class="text-plumbody text-xs leading-relaxed">
+                <em>Avoidant/Restrictive Food Intake Disorder</em> involves intense sensory aversion (texture/smell) or fear of choking, causing <strong>weight loss, faltering growth, or vitamin deficiencies</strong>.
+              </p>
+            </div>
+          </div>
+
+          <div class="text-xs font-bold text-plumbody bg-blush border border-roseborder/70 px-3.5 py-2.5 rounded-xl">
+            🤝 <strong>Supportive Approach:</strong> Pressure-free food exploration, pediatric feeding therapy, and targeted supplements help kids expand safe foods gently.
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. INTERACTIVE "FACT OR MYTH?" MINI-QUIZ -->
+  <section id="fact-myth" class="py-14 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-blush to-[#FFE2EC]">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+        <div class="space-y-2">
+          <span class="inline-block px-3.5 py-1 rounded-full bg-babypink text-white font-extrabold text-xs uppercase tracking-wider">Test Your Nutrition Super-Smarts</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-cocoaplum">Fact or Myth? Mini-Quiz</h2>
+          <p class="text-plumbody font-medium">Tap <strong>Fact</strong> or <strong>Myth</strong> on each card below to reveal the science behind kids' health!</p>
+        </div>
+
+        <!-- Score Counter Pill -->
+        <div class="flex items-center gap-3 bg-white px-4 py-3 rounded-2xl border-2 border-roseborder play-card shrink-0">
+          <div>
+            <span class="text-xs font-extrabold uppercase text-berrymauve block">Your Score</span>
+            <span id="quizScoreText" class="font-display text-2xl font-bold text-cocoaplum">0 / 5</span>
+          </div>
+          <button type="button" id="resetQuizBtn" class="btn-bouncy px-3 py-1.5 rounded-xl bg-petal hover:bg-strawberry text-cocoaplum text-xs font-extrabold border border-roseborder">
+            Reset
+          </button>
+        </div>
+      </div>
+
+      <!-- Celebration Banner (Hidden until all 5 answered) -->
+      <div id="quizCompleteBanner" class="hidden mb-6 p-5 rounded-3xl bg-white border-2 border-babypink play-card text-center space-y-1">
+        <p id="quizBannerTitle" class="font-display text-2xl font-bold text-cocoaplum">🎉 Amazing Job, Nutrition Explorer!</p>
+        <p id="quizBannerSubtitle" class="text-sm font-bold text-berrymauve"></p>
+      </div>
+
+      <!-- Quiz Cards Container -->
+      <div id="quizContainer" class="space-y-4"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-cocoaplum text-[#FCE8F0] py-10 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+      <div class="space-y-1.5 max-w-xl">
+        <div class="flex items-center justify-center md:justify-start gap-2">
+          <span class="text-xl">🌸</span>
+          <span class="font-display text-xl font-bold text-white">Little Sprouts Nutrition &amp; Health Hub</span>
+        </div>
+        <p class="text-xs sm:text-sm text-[#F7D2E0] leading-relaxed">
+          <strong>Educational Awareness Notice:</strong> This interactive guide is designed to teach children, families, and educators about balanced nutrition and nutritional disorders. It does not replace professional medical advice—always consult a pediatrician or registered dietitian for individual health concerns.
+        </p>
+      </div>
+      <a href="#top" class="btn-bouncy px-5 py-2.5 rounded-full bg-babypink text-white font-extrabold text-sm shadow-md hover:bg-roseblush shrink-0">
+        ↑ Back to Top
+      </a>
+    </div>
+  </footer>
+
+  <!-- INTERACTIVE JAVASCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      /* =========================================================
+         1. SUPER-PLATE BUILDER DATA & LOGIC
+         ========================================================= */
+      const foodGroups = [
+        {
+          id: 'veggies',
+          name: 'Colorful Veggies',
+          color: '#B7E4C7',
+          badgeBg: 'bg-petal border-babypink text-cocoaplum',
+          items: [
+            { id: 'broccoli', name: 'Broccoli Trees', emoji: '🥦', benefit: 'Vitamin C & K for germ-fighting shields and strong bones!' },
+            { id: 'carrots', name: 'Crunchy Carrots', emoji: '🥕', benefit: 'Beta-carotene (Vitamin A) for sharp eagle-eye vision!' },
+            { id: 'spinach', name: 'Leafy Spinach', emoji: '🥬', benefit: 'Plant iron & folate to keep brain energy zooming!' }
+          ]
+        },
+        {
+          id: 'fruits',
+          name: 'Sweet Fruits',
+          color: '#FFB3C6',
+          badgeBg: 'bg-strawberry border-roseblush text-cocoaplum',
+          items: [
+            { id: 'berries', name: 'Strawberries', emoji: '🍓', benefit: 'Vitamin C to heal scrapes fast and keep gums healthy!' },
+            { id: 'banana', name: 'Banana', emoji: '🍌', benefit: 'Potassium & natural fuel for running, jumping, and play!' },
+            { id: 'orange', name: 'Juicy Orange', emoji: '🍊', benefit: 'Helps your tummy absorb iron from other healthy foods!' }
+          ]
+        },
+        {
+          id: 'proteins',
+          name: 'Body-Building Proteins',
+          color: '#FFAD9E',
+          badgeBg: 'bg-[#FFE9E3] border-coralpeach text-cocoaplum',
+          items: [
+            { id: 'eggs', name: 'Scrambled Eggs', emoji: '🥚', benefit: 'Complete protein & choline for memory and muscle building!' },
+            { id: 'beans', name: 'Power Beans', emoji: '🫘', benefit: 'Protein, zinc, and fiber to prevent anemia and keep tummies full!' },
+            { id: 'fish', name: 'Salmon / Fish', emoji: '🐟', benefit: 'Omega-3 brain fats & Vitamin D for super focus!' }
+          ]
+        },
+        {
+          id: 'grains',
+          name: 'Whole Grains',
+          color: '#FDE2B8',
+          badgeBg: 'bg-[#FFF4E0] border-[#F6C28B] text-cocoaplum',
+          items: [
+            { id: 'oats', name: 'Oatmeal Bowl', emoji: '🥣', benefit: 'Slow-release energy so kids stay focused all morning!' },
+            { id: 'brownrice', name: 'Brown Rice', emoji: '🍚', benefit: 'B-vitamins that turn food into steady playground power!' },
+            { id: 'wholebread', name: 'Whole-Grain Toast', emoji: '🍞', benefit: 'Tummy-friendly fiber for smooth digestion!' }
+          ]
+        },
+        {
+          id: 'dairy',
+          name: 'Dairy & Healthy Fats',
+          color: '#EAD7F5',
+          badgeBg: 'bg-[#F6ECFB] border-lavenderpink text-cocoaplum',
+          items: [
+            { id: 'milk', name: 'Milk / Fortified Soy', emoji: '🥛', benefit: 'Calcium & Vitamin D to build tall, sturdy bones & teeth!' },
+            { id: 'yogurt', name: 'Creamy Yogurt', emoji: '🍦', benefit: 'Friendly probiotics for a happy, balanced tummy!' },
+            { id: 'avocado', name: 'Avocado Slices', emoji: '🥑', benefit: 'Healthy fats that help absorb Vitamins A, D, E, and K!' }
+          ]
+        }
+      ];
+
+      // Tracks currently selected item per group (groupId -> item object)
+      const selectedFoods = {};
+
+      const foodGroupsContainer = document.getElementById('foodGroupsContainer');
+      const benefitsList = document.getElementById('benefitsList');
+      const plateCountBadge = document.getElementById('plateCountBadge');
+      const plateStatusLabel = document.getElementById('plateStatusLabel');
+
+      function renderFoodSelectors() {
+        foodGroupsContainer.innerHTML = '';
+        foodGroups.forEach(group => {
+          const groupDiv = document.createElement('div');
+          groupDiv.className = 'space-y-2';
+
+          const header = document.createElement('div');
+          header.className = 'flex items-center justify-between';
+          header.innerHTML = `<span class="text-xs font-extrabold uppercase tracking-wider text-berrymauve">${group.name}</span>`;
+          groupDiv.appendChild(header);
+
+          const btnRow = document.createElement('div');
+          btnRow.className = 'grid grid-cols-1 sm:grid-cols-3 gap-2';
+
+          group.items.forEach(item => {
+            const isSelected = selectedFoods[group.id]?.id === item.id;
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = `btn-bouncy flex items-center gap-2 px-3 py-2.5 rounded-2xl border-2 text-left text-xs sm:text-sm font-bold transition-all ${
+              isSelected
+                ? `${group.badgeBg} ring-2 ring-offset-1 ring-babypink shadow-sm`
+                : 'bg-blush border-roseborder/70 text-cocoaplum hover:bg-petal hover:border-roseborder'
+            }`;
+            btn.innerHTML = `<span class="text-xl leading-none">${item.emoji}</span><span class="truncate">${item.name}</span>`;
+            btn.addEventListener('click', () => {
+              if (selectedFoods[group.id]?.id === item.id) {
+                delete selectedFoods[group.id];
+              } else {
+                selectedFoods[group.id] = item;
+              }
+              updatePlateUI();
+            });
+            btnRow.appendChild(btn);
+          });
+
+          groupDiv.appendChild(btnRow);
+          foodGroupsContainer.appendChild(groupDiv);
+        });
+      }
+
+      function updatePlateUI() {
+        renderFoodSelectors();
+        const activeKeys = Object.keys(selectedFoods);
+        const count = activeKeys.length;
+
+        plateCountBadge.textContent = `${count} / 5 Groups`;
+
+        // Update SVG slices & emojis
+        foodGroups.forEach(group => {
+          const sliceEl = document.getElementById(`slice-${group.id}`);
+          const labelEl = document.getElementById(`label-${group.id}`);
+          const chosen = selectedFoods[group.id];
+
+          if (chosen) {
+            sliceEl.setAttribute('fill', group.color);
+            sliceEl.setAttribute('opacity', '0.88');
+            labelEl.textContent = chosen.emoji;
+          } else {
+            sliceEl.setAttribute('fill', '#F9C6D7');
+            sliceEl.setAttribute('opacity', '0.35');
+            const defaults = { veggies: '🥦', fruits: '🍓', grains: '🌾', proteins: '🥚', dairy: '🥛' };
+            labelEl.textContent = defaults[group.id];
+          }
+        });
+
+        // Update Benefits Panel
+        if (count === 0) {
+          plateStatusLabel.textContent = 'Tap foods to start!';
+          plateStatusLabel.className = 'text-xs font-bold text-plumbody/70';
+          benefitsList.innerHTML = `<p class="text-plumbody/75 italic">Your plate is empty right now. Pick a protein, veggie, fruit, grain, or dairy item to see how it helps a child grow!</p>`;
+          return;
+        }
+
+        if (count === 5) {
+          plateStatusLabel.textContent = '🌟 Complete 5-Star Super-Plate!';
+          plateStatusLabel.className = 'text-xs font-extrabold text-roseblush';
+        } else {
+          plateStatusLabel.textContent = `Great start! Add ${5 - count} more group${5 - count > 1 ? 's' : ''}`;
+          plateStatusLabel.className = 'text-xs font-bold text-berrymauve';
+        }
+
+        benefitsList.innerHTML = activeKeys.map(key => {
+          const item = selectedFoods[key];
+          return `
+            <div class="flex items-start gap-2.5 bg-white p-2.5 rounded-xl border border-roseborder shadow-xs">
+              <span class="text-lg leading-none mt-0.5">${item.emoji}</span>
+              <div class="text-xs leading-snug">
+                <strong class="text-cocoaplum">${item.name}:</strong>
+                <span class="text-plumbody">${item.benefit}</span>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      document.getElementById('presetBalancedBtn').addEventListener('click', () => {
+        selectedFoods.veggies = foodGroups[0].items[0];
+        selectedFoods.fruits = foodGroups[1].items[0];
+        selectedFoods.proteins = foodGroups[2].items[2];
+        selectedFoods.grains = foodGroups[3].items[1];
+        selectedFoods.dairy = foodGroups[4].items[0];
+        updatePlateUI();
+      });
+
+      document.getElementById('clearPlateBtn').addEventListener('click', () => {
+        Object.keys(selectedFoods).forEach(k => delete selectedFoods[k]);
+        updatePlateUI();
+      });
+
+      // Initialize Super-Plate with 2 starter items so it looks inviting right away
+      selectedFoods.veggies = foodGroups[0].items[1];
+      selectedFoods.dairy = foodGroups[4].items[0];
+      updatePlateUI();
+
+
+      /* =========================================================
+         2. NUTRITIONAL DISEASES & MALNUTRITION GUIDE
+         ========================================================= */
+      const conditionsData = [
+        {
+          category: 'undernutrition',
+          categoryLabel: 'Protein-Energy Malnutrition',
+          borderClass: 'border-roseborder',
+          badgeClass: 'bg-strawberry text-cocoaplum',
+          title: 'Kwashiorkor (Severe Protein Deficit)',
+          svg: `<svg viewBox="0 0 48 48" class="w-9 h-9" fill="none"><circle cx="24" cy="24" r="18" fill="#FFD6E4"/><path d="M16 28C16 22 32 22 32 28C32 34 28 37 24 37C20 37 16 34 16 28Z" fill="#F283A8"/><circle cx="24" cy="16" r="5" fill="#E56B94"/></svg>`,
+          whatHappens: 'Occurs when a child gets enough starchy calories (like plain porridge) but far too little protein, disturbing fluid balance in the body.',
+          signs: 'Swelling (edema) in the feet, legs, and belly, thinning reddish hair, peeling skin, and extreme tiredness.',
+          prevention: 'Include daily protein foods like eggs, beans, lentils, fish, milk, or nut pastes alongside staple grains.'
+        },
+        {
+          category: 'undernutrition',
+          categoryLabel: 'Protein-Energy Malnutrition',
+          borderClass: 'border-roseborder',
+          badgeClass: 'bg-strawberry text-cocoaplum',
+          title: 'Marasmus (Severe Calorie & Protein Deficit)',
+          svg: `<svg viewBox="0 0 48 48" class="w-9 h-9" fill="none"><circle cx="24" cy="24" r="18" fill="#FFEBF1"/><path d="M15 31L21 22L27 26L33 17" stroke="#C9648B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="33" cy="17" r="3" fill="#C9648B"/></svg>`,
+          whatHappens: 'Caused by a severe shortage of both total energy (calories) and protein, forcing the body to break down its own fat and muscle.',
+          signs: 'Severe underweight, visible ribs, loss of muscle and body fat, constant hunger, and low body temperature.',
+          prevention: 'Adequate, frequent calorie- and nutrient-dense meals, breastfeeding support in infancy, and early growth monitoring.'
+        },
+        {
+          category: 'undernutrition',
+          categoryLabel: 'Vitamin D & Calcium Deficit',
+          borderClass: 'border-roseborder',
+          badgeClass: 'bg-strawberry text-cocoaplum',
+          title: 'Rickets (Soft & Weak Bones)',
+          svg: `<svg viewBox="0 0 48 48" class="w-9 h-9" fill="none"><circle cx="24" cy="24" r="18" fill="#FFE9E3"/><path d="M17 15C15 15 14 17 15 19C14 21 16 23 18 22L28 32C27 34 29 36 31 35C33 36 35 34 34 32C35 30 33 28 31 29L21 19C22 17 20 15 17 15Z" fill="#F283A8"/></svg>`,
+          whatHappens: 'Without enough Vitamin D or Calcium, growing bones cannot harden properly and become soft and flexible under a child’s weight.',
+          signs: 'Bowed legs or knock-knees, thickened wrists/ankles, bone pain, delayed walking, and dental enamel problems.',
+          prevention: 'Safe outdoor sunlight exposure, Vitamin D drops for infants, and calcium-rich milk, yogurt, leafy greens, or fortified foods.'
+        },
+        {
+          category: 'undernutrition',
+          categoryLabel: 'Micronutrient Deficiency',
+          borderClass: 'border-roseborder',
+          badgeClass: 'bg-strawberry text-cocoaplum',
+          title: 'Iron-Deficiency Anemia',
+          svg: `<svg viewBox="0 0 48 48" class="w-9 h-9" fill="none"><circle cx="24" cy="24" r="18" fill="#FFD6E4"/><path d="M24 12C24 12 15 22 15 28C15 33 19 37 24 37C29 37 33 33 33 28C33 22 24 12 24 12Z" fill="#E56B94"/></svg>`,
+          whatHappens: 'Iron makes hemoglobin, the oxygen taxi in red blood cells. Low iron means muscles and the brain receive less oxygen.',
+          signs: 'Pale inner eyelids/skin, low energy, dizziness, cold hands, trouble concentrating in school, and sometimes Pica cravings.',
+          prevention: 'Pair iron-rich foods (beans, lentils, spinach, lean meats, fortified cereals) with Vitamin C fruits to boost absorption.'
+        },
+        {
+          category: 'undernutrition',
+          categoryLabel: 'Micronutrient Deficiency',
+          borderClass: 'border-roseborder',
+          badgeClass: 'bg-strawberry text-cocoaplum',
+          title: 'Vitamin A Deficiency',
+          svg: `<svg viewBox="0 0 48 48" class="w-9 h-9" fill="none"><circle cx="24" cy="24" r="18" fill="#FFE9E3"/><path d="M10 24C14 17 34 17 38 24C34 31 14 31 10 24Z" fill="#FFAD9E"/><circle cx="24" cy="24" r="5" fill="#FFF"/><circle cx="24" cy="24" r="2.5" fill="#4A2535"/></svg>`,
+          whatHappens: 'Vitamin A protects eye light sensors and keeps skin and airway linings strong against everyday infections.',
+          signs: 'Night blindness (trouble seeing in dim light), dry eyes, and frequent respiratory or tummy infections.',
+          prevention: 'Eat orange and dark-green foods (carrots, sweet potatoes, mangoes, pumpkin, spinach) plus eggs and dairy.'
+        },
+        {
+          category: 'undernutrition',
+          categoryLabel: 'Vitamin C & Iodine Deficits',
+          borderClass: 'border-roseborder',
+          badgeClass: 'bg-strawberry text-cocoaplum',
+          title: 'Scurvy & Iodine Deficiency',
+          svg: `<svg viewBox="0 0 48 48" class="w-9 h-9" fill="none"><circle cx="24" cy="24" r="18" fill="#FFEBF1"/><circle cx="24" cy="24" r="10" fill="#F283A8"/><path d="M24 14V34M14 24H34" stroke="#FFF" stroke-width="2"/></svg>`,
+          whatHappens: 'Lack of Vitamin C (Scurvy) weakens collagen in blood vessels and gums; lack of Iodine slows thyroid hormones needed for brain growth.',
+          signs: 'Scurvy: swollen bleeding gums, easy bruising, slow wound healing. Iodine deficit: neck swelling (goiter) and slowed learning.',
+          prevention: 'Daily fresh fruits/veggies (oranges, bell peppers, berries) for Vitamin C, and iodized salt or seafood for Iodine.'
+        },
+        {
+          category: 'overnutrition',
+          categoryLabel: 'Excess Energy Intake',
+          borderClass: 'border-coralpeach',
+          badgeClass: 'bg-[#FFE9E3] text-cocoaplum',
+          title: 'Childhood Obesity',
+          svg: `<svg viewBox="0 0 48 48" class="w-9 h-9" fill="none"><circle cx="24" cy="24" r="18" fill="#FFE9E3"/><path d="M16 26L24 16L32 26" stroke="#E56B94" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 18V34" stroke="#E56B94" stroke-width="3.5" stroke-linecap="round"/></svg>`,
+          whatHappens: 'Happens over time when calorie intake—especially from fast food, oversized portions, and sugary snacks—far exceeds daily physical activity.',
+          signs: 'Rapid weight gain above healthy growth curves, shortness of breath during play, joint/knee strain, and poor sleep.',
+          prevention: 'Balanced family meals, joyful daily active play (60+ mins), water instead of soda, and screen-time limits—never crash diets!'
+        },
+        {
+          category: 'overnutrition',
+          categoryLabel: 'Metabolic Strain',
+          borderClass: 'border-coralpeach',
+          badgeClass: 'bg-[#FFE9E3] text-cocoaplum',
+          title: 'Early Insulin Resistance & Type 2 Risk',
+          svg: `<svg viewBox="0 0 48 48" class="w-9 h-9" fill="none"><circle cx="24" cy="24" r="18" fill="#FFD6E4"/><path d="M14 26H20L23 18L27 30L30 24H35" stroke="#C9648B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+          whatHappens: 'Frequent blood-sugar spikes make body cells less responsive to insulin, forcing the pancreas to work overtime.',
+          signs: 'Darkened velvety skin patches on the neck or underarms (acanthosis nigricans), high thirst, and post-meal fatigue.',
+          prevention: 'Swap refined white carbs and candy for high-fiber whole grains, beans, veggies, and regular outdoor movement.'
+        },
+        {
+          category: 'overnutrition',
+          categoryLabel: 'Excess Added Sugars',
+          borderClass: 'border-coralpeach',
+          badgeClass: 'bg-[#FFE9E3] text-cocoaplum',
+          title: 'Dental Caries (Tooth Decay)',
+          svg: `<svg viewBox="0 0 48 48" class="w-9 h-9" fill="none"><circle cx="24" cy="24" r="18" fill="#FFEBF1"/><path d="M17 17C17 13 22 13 24 16C26 13 31 13 31 17C31 23 29 33 27 33C25.5 33 25 27 24 27C23 27 22.5 33 21 33C19 33 17 23 17 17Z" fill="#FFF" stroke="#E56B94" stroke-width="2.5"/></svg>`,
+          whatHappens: 'Mouth bacteria feast on sticky candies, sweet snacks, and juices, creating acids that dissolve tooth enamel.',
+          signs: 'White or brown spots on teeth, sensitivity to cold/sweet foods, toothaches, and difficulty chewing crunchy healthy foods.',
+          prevention: 'Limit sticky sweets, rinse with water after snacks, brush twice daily with fluoride toothpaste, and visit the dentist.'
+        },
+        {
+          category: 'defective',
+          categoryLabel: 'Imbalanced & Defective Diets',
+          borderClass: 'border-lavenderpink',
+          badgeClass: 'bg-lavenderpink text-cocoaplum',
+          title: '"Hidden Hunger" (Ultra-Processed Diet)',
+          svg: `<svg viewBox="0 0 48 48" class="w-9 h-9" fill="none"><circle cx="24" cy="24" r="18" fill="#F6ECFB"/><rect x="16" y="14" width="16" height="20" rx="3" fill="#C9648B"/><path d="M20 21H28M20 26H25" stroke="#FFF" stroke-width="2.5" stroke-linecap="round"/></svg>`,
+          whatHappens: 'A child eats plenty of calories from chips, cookies, and nuggets, yet remains starved of essential vitamins, minerals, and fiber.',
+          signs: 'Normal or high weight paired with low immunity, constipation, brittle nails, fatigue, and poor concentration.',
+          prevention: 'Follow the 80/20 rule: fill 80%+ of meals with whole, minimally processed foods and keep packaged snacks as occasional treats.'
+        },
+        {
+          category: 'defective',
+          categoryLabel: 'Imbalanced & Defective Diets',
+          borderClass: 'border-lavenderpink',
+          badgeClass: 'bg-lavenderpink text-cocoaplum',
+          title: 'Unplanned Restrictive & Sugary-Drink Diets',
+          svg: `<svg viewBox="0 0 48 48" class="w-9 h-9" fill="none"><circle cx="24" cy="24" r="18" fill="#EAD7F5"/><path d="M18 14H30L28 34H20L18 14Z" fill="#E56B94"/><path d="M26 10L24 16" stroke="#C9648B" stroke-width="2.5" stroke-linecap="round"/></svg>`,
+          whatHappens: 'Eliminating entire food groups without replacements causes Vitamin B12, Zinc, or Omega-3 deficits; excess soda/juice displaces milk & water.',
+          signs: 'Tingling/fatigue (low B12), slow growth (low Zinc), or weak bone mineralization when sweet drinks replace calcium-rich milk.',
+          prevention: 'If following vegan, dairy-free, or allergy diets, include fortified foods or pediatrician-guided B12, Zinc, Calcium, and Omega-3s.'
+        }
+      ];
+
+      const diseasesGrid = document.getElementById('diseasesGrid');
+      const filterTabs = document.querySelectorAll('.disease-tab');
+
+      function renderDiseases(filter = 'all') {
+        const filtered = filter === 'all'
+          ? conditionsData
+          : conditionsData.filter(c => c.category === filter);
+
+        diseasesGrid.innerHTML = filtered.map(item => `
+          <article class="bg-white rounded-3xl p-5 sm:p-6 border-2 ${item.borderClass} play-card flex flex-col justify-between space-y-4">
+            <div class="space-y-3">
+              <div class="flex items-start gap-3">
+                <div class="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0">
+                  ${item.svg}
+                </div>
+                <div>
+                  <span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-extrabold ${item.badgeClass} mb-1">
+                    ${item.categoryLabel}
+                  </span>
+                  <h3 class="text-lg font-bold text-cocoaplum leading-snug">${item.title}</h3>
+                </div>
+              </div>
+
+              <div class="space-y-2 text-xs sm:text-sm text-plumbody">
+                <p><strong class="text-cocoaplum">What Happens:</strong> ${item.whatHappens}</p>
+                <p><strong class="text-roseblush">Key Signs:</strong> ${item.signs}</p>
+              </div>
+            </div>
+
+            <div class="p-3 rounded-2xl bg-petal border border-roseborder text-xs text-cocoaplum">
+              <strong>🛡️ How to Prevent It:</strong> ${item.prevention}
+            </div>
+          </article>
+        `).join('');
+      }
+
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          filterTabs.forEach(t => {
+            t.className = 'disease-tab btn-bouncy px-4 py-2.5 rounded-2xl font-extrabold text-sm bg-white border-2 border-roseborder text-cocoaplum hover:bg-petal';
+          });
+          tab.className = 'disease-tab btn-bouncy px-4 py-2.5 rounded-2xl font-extrabold text-sm bg-babypink text-white shadow-sm';
+          renderDiseases(tab.dataset.filter);
+        });
+      });
+
+      renderDiseases('all');
+
+
+      /* =========================================================
+         3. INTERACTIVE "FACT OR MYTH?" MINI-QUIZ
+         ========================================================= */
+      const quizQuestions = [
+        {
+          statement: '“100% fruit juice is just as healthy for kids as eating whole fresh fruit.”',
+          answer: 'myth',
+          explanation: 'MYTH! Whole fruit has tummy-filling fiber that slows down natural sugar absorption. Even 100% juice packs concentrated sugar without fiber, which can contribute to cavities and excess weight.'
+        },
+        {
+          statement: '“A child repeatedly craving and eating dirt, chalk, or ice (Pica) can be a sign of low Iron or Zinc.”',
+          answer: 'fact',
+          explanation: 'FACT! Pica is often linked to Iron-deficiency anemia or Zinc deficiency. A simple blood test from a pediatrician can spot the deficiency and help treat it safely.'
+        },
+        {
+          statement: '“Kids always naturally outgrow excess weight, so childhood obesity isn’t a health concern.”',
+          answer: 'myth',
+          explanation: 'MYTH! Excess weight in childhood frequently continues into adulthood and can strain growing joints, sleep, and blood sugar early. Gentle, balanced family habits make a huge positive difference.'
+        },
+        {
+          statement: '“Children with Celiac disease must avoid gluten completely so their small intestine can absorb vitamins.”',
+          answer: 'fact',
+          explanation: 'FACT! Gluten triggers an autoimmune reaction in Celiac disease that flattens intestinal villi. A 100% gluten-free diet heals the gut so iron, calcium, and calories are absorbed again.'
+        },
+        {
+          statement: '“A child can eat plenty of calories every day and still suffer from malnutrition.”',
+          answer: 'fact',
+          explanation: 'FACT! This is called “Hidden Hunger.” Diets heavy in ultra-processed snacks provide lots of calories, fats, and sugars, but leave growing bodies starved of iron, vitamins, and protein.'
+        }
+      ];
+
+      let quizAnswers = {};
+      const quizContainer = document.getElementById('quizContainer');
+      const quizScoreText = document.getElementById('quizScoreText');
+      const quizCompleteBanner = document.getElementById('quizCompleteBanner');
+      const quizBannerTitle = document.getElementById('quizBannerTitle');
+      const quizBannerSubtitle = document.getElementById('quizBannerSubtitle');
+
+      function renderQuiz() {
+        quizContainer.innerHTML = quizQuestions.map((q, idx) => {
+          const userSelection = quizAnswers[idx];
+          const isAnswered = userSelection !== undefined;
+          const isCorrect = userSelection === q.answer;
+
+          return `
+            <div class="bg-white rounded-3xl p-5 sm:p-6 border-2 ${
+              !isAnswered ? 'border-roseborder' : isCorrect ? 'border-babypink' : 'border-coralpeach'
+            } play-card transition-colors">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="space-y-1">
+                  <span class="text-xs font-extrabold uppercase tracking-wider text-berrymauve">Question ${idx + 1} of ${quizQuestions.length}</span>
+                  <p class="text-base sm:text-lg font-bold text-cocoaplum">${q.statement}</p>
+                </div>
+
+                <div class="flex items-center gap-2.5 shrink-0">
+                  <button type="button" data-q="${idx}" data-choice="fact" ${isAnswered ? 'disabled' : ''}
+                    class="quiz-btn btn-bouncy px-5 py-2.5 rounded-2xl font-extrabold text-sm border-2 transition-all ${
+                      isAnswered && q.answer === 'fact'
+                        ? 'bg-babypink text-white border-babypink'
+                        : isAnswered && userSelection === 'fact'
+                        ? 'bg-coralpeach text-cocoaplum border-coralpeach'
+                        : 'bg-petal hover:bg-strawberry text-cocoaplum border-roseborder'
+                    }">
+                    ✅ Fact
+                  </button>
+                  <button type="button" data-q="${idx}" data-choice="myth" ${isAnswered ? 'disabled' : ''}
+                    class="quiz-btn btn-bouncy px-5 py-2.5 rounded-2xl font-extrabold text-sm border-2 transition-all ${
+                      isAnswered && q.answer === 'myth'
+                        ? 'bg-babypink text-white border-babypink'
+                        : isAnswered && userSelection === 'myth'
+                        ? 'bg-coralpeach text-cocoaplum border-coralpeach'
+                        : 'bg-[#FFF3EE] hover:bg-[#FFE4DA] text-cocoaplum border-coralpeach'
+                    }">
+                    ❌ Myth
+                  </button>
+                </div>
+              </div>
+
+              ${isAnswered ? `
+                <div class="mt-4 p-3.5 rounded-2xl text-sm font-semibold ${
+                  isCorrect ? 'bg-petal text-cocoaplum border border-babypink' : 'bg-[#FFF3EE] text-cocoaplum border border-coralpeach'
+                }">
+                  <span class="font-extrabold">${isCorrect ? '🎉 Spot on! ' : '💡 Good try! '}</span>${q.explanation}
+                </div>
+              ` : ''}
+            </div>
+          `;
+        }).join('');
+
+        // Attach click handlers
+        document.querySelectorAll('.quiz-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const qIndex = Number(btn.dataset.q);
+            const choice = btn.dataset.choice;
+            quizAnswers[qIndex] = choice;
+            updateQuizScore();
+            renderQuiz();
+          });
+        });
+      }
+
+      function updateQuizScore() {
+        const answeredCount = Object.keys(quizAnswers).length;
+        let correctCount = 0;
+        quizQuestions.forEach((q, idx) => {
+          if (quizAnswers[idx] === q.answer) correctCount++;
+        });
+
+        quizScoreText.textContent = `${correctCount} / ${quizQuestions.length}`;
+
+        if (answeredCount === quizQuestions.length) {
+          quizCompleteBanner.classList.remove('hidden');
+          quizBannerTitle.textContent = correctCount >= 4
+            ? `🏆 Super Star! You scored ${correctCount} out of ${quizQuestions.length}!`
+            : `🌸 Great Exploring! You scored ${correctCount} out of ${quizQuestions.length}!`;
+          quizBannerSubtitle.textContent = 'Share what you learned about healthy plates, hidden hunger, and food sensitivities with your family or class!';
+        } else {
+          quizCompleteBanner.classList.add('hidden');
+        }
+      }
+
+      document.getElementById('resetQuizBtn').addEventListener('click', () => {
+        quizAnswers = {};
+        updateQuizScore();
+        renderQuiz();
+      });
+
+      renderQuiz();
+    });
+  </script>
+</body>
+</html>
+```
